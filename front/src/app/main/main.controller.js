@@ -11,12 +11,11 @@ export class MainController {
   constructor ($http) {
       'ngInject';
       this.$http = $http;
-      
   }
 
   postMessage (){
       this.$http.post('http://localhost:8080/api/message', {
-          msg: 'hello'
+          msg: this.message
       });
   }
 }
