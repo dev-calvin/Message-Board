@@ -11,6 +11,15 @@ export class MainController {
   constructor ($http) {
       'ngInject';
       this.$http = $http;
+      this.getMessages();
+  }
+
+  getMessages(){
+    var vm = this;
+    this.$http.get('http://localhost:8080/api/message').then(
+      function(res){
+        vm.messages = res.data;
+    });
   }
 
   postMessage (){
